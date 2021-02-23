@@ -1,0 +1,104 @@
+<div class="row">
+    <div class="col s12">
+        <div class="card">
+            <div class="card-content white-text">
+                <div class="row">
+                    <div class="col s5">
+                        <form #empleadoForm="ngForm" (ngSubmit)="onSubmit(empleadoForm)" required>
+                            <input type="hidden" name="_id" #name="ngModel" [(ngModel)]="empleadosService.selectEmpleado._id">
+                            <div class="row">
+                                <div class="input-field col s12">
+                                    <input type="text" name="nombre" #name="ngModel" [(ngModel)]="empleadosService.selectEmpleado.nombre" placeholder="Nombre" required autofocus>
+                                    <label><span style="color: white;">Título De La Canción:</span>
+                                        <label class="red-text"> *</label>
+                                    </label>
+                                </div>
+                            </div>
+                                <div class="row">
+                                    <div class="input-field col s12">
+                                        <input type="text" name="posicion" #name="ngModel"
+                                        [(ngModel)]="empleadosService.selectEmpleado.posicion"
+                                        placeholder="Veela, Illenium, Laura Brehm" required autofocus>
+                                        <label><span style="color: white;">  Artista:</span>
+                                            <label class="red-text"> *</label>
+                                        </label>
+                                    </div>
+                                </div>
+                                
+                                <div class="row">
+                                    <div class="input-field col s12">
+                                        <input type="text" name="office" #name="ngModel"
+                                        [(ngModel)]="empleadosService.selectEmpleado.office"
+                                        placeholder="Rock, Pop, Electronica" > 
+                                        <label><span style="color: white;">  Genero:</span>
+                                            <label class="red-text"></label>
+                                        </label>
+                                    </div>
+                                </div>
+                                
+                                <div class="row">
+                                    <div class="input-field col s12">
+                                        <input type="text" name="salario" #name="ngModel"
+                                        [(ngModel)]="empleadosService.selectEmpleado.salario"
+                                        placeholder="Nature" >
+                                        <label><span style="color: white;">  Album:</span>
+                                            <label class="red-text"></label>
+                                        </label>
+                                    </div>
+                                </div>
+                                
+                                <div class="row">
+                                    <div class="input-field col s12">
+                                        <input type="text" name="direccion" #name="ngModel"
+                                        [(ngModel)]="empleadosService.selectEmpleado.direccion"
+                                        placeholder="20/02/2013" >
+                                        <label><span style="color: white;">  Año:</span>
+                                            <label class="red-text"></label>
+                                        </label>
+                                    </div>
+                                </div>
+                                
+                                <div class="row">
+                                    <button class="btn btn-custom right" type="button"  (click)="resetForm(empleadoForm)" > Reset </button>
+                                    <button class="btn btn-custom right" type="submit"  [disabled]="!empleadoForm.valid">Submit</button>
+                                </div>
+                        </form>
+                    </div>
+
+
+                    <section>
+
+                        <div class="col-s7">
+                                        <table class="responsive-table highlight">
+                                            <thead>
+                                                <tr>
+                                                    <th>Nombre</th>
+                                                    <th>Artista</th>
+                                                    <th>Genero</th>
+                                                    <th>Album</th>
+                                                    <th>Año</th>
+                                                </tr>
+                                            </thead>
+                                            <tr *ngFor="let emp of empleadosService.Empleados">
+                                                <td>{{emp.nombre}}</td>
+                                                <td>{{emp.posicion}}</td>
+                                                <td>{{emp.office}}</td>
+                                                <td>{{emp.salario}}</td>
+                                                <td>{{emp.direccion}}</td>
+                                                <td>
+                                                    <a class="action-btn" (click)="onEdit(emp)">
+                                                        <i class="material-icons">edit</i>
+                                                      </a>
+                                                      <a class="action-btn" (click)="onDelete(emp._id, empleadoForm)">
+                                                        <i class="material-icons">delete</i>
+                                                      </a>
+                                                </td>
+                                            </tr>
+                                        </table>
+                            </div>
+                    </section>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>

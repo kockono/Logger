@@ -1,0 +1,27 @@
+
+<div class="container" id="container">
+	<div class="form-container sign-in-container">
+		<form #empleadoForm="ngForm" (submit)="signIn()">
+			<h1>Sesión</h1>
+			<div class="social-container">
+				<a href="#" class="social"><i class="fab fa-facebook-f"></i></a>
+				<a href="#" class="social"><i class="fab fa-google-plus-g"></i></a>
+				<a href="#" class="social"><i class="fab fa-linkedin-in"></i></a>
+			</div>
+			<span><h6>Atraves de redes sociales</h6></span>
+			<input type="email" [(ngModel)]="user.email" name="email" class="form-control" placeholder="Email" required autofocus/>
+			<input type="password" type="password" [(ngModel)]="user.password" name="password" class="form-control" placeholder="Password" required/>
+			<a href="#">Olvidaste tu contraseña?</a>
+			<button type="submit" [disabled]="!empleadoForm.valid">Ingresar</button>
+		</form>
+	</div>
+	<div class="overlay-container">
+		<div class="overlay">
+			<div class="overlay-panel overlay-right">
+				<h1>Bienvenido Amigo!</h1>
+				<h6><br>Ingresa hoy para seguir creando y utilizando tus playlists<br><br><br><br><br><br>Si no cuentas con una cuenta registrate!<br><br></h6>
+				<button class="ghost" id="signUp" routerLink="/signup">Registrarse</button>
+			</div>
+		</div>
+	</div>
+</div>
